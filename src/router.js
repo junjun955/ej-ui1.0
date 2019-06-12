@@ -7,6 +7,8 @@ import WaiterPage from './routes/WaiterPage'
 import OrderPage from './routes/OrderPage'
 import CommentPage from './routes/CommentPage'
 import ProductPage from './routes/ProductPage'
+import AddressPage from './routes/AddressPage'
+import CategoryPage from './routes/CategoryPage'
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
@@ -18,6 +20,8 @@ function RouterConfig({ history }) {
         <Route path="/order" exact component={OrderPage} />
         <Route path="/comment" exact component={CommentPage} />
         <Route path="/product" exact component={ProductPage} />
+        <Route path="/address" exact component={AddressPage} />
+        <Route path="/category" exact component={CategoryPage} />
       </Switch>
     </Router>
   );
