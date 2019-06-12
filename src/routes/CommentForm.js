@@ -21,9 +21,9 @@ class CommentForm extends React.Component {
                 rules: [{ required: true, message: '请输入姓名!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="手机号">
+            <Form.Item label="评论信息">
               {getFieldDecorator('telephone', {
-                rules: [{ required: true, message: '请输入手机号!' }],
+                rules: [{ required: true, message: '请输入评论信息!' }],
               })(<Input />)}
             </Form.Item>
             <Form.Item label="密码">
@@ -31,6 +31,7 @@ class CommentForm extends React.Component {
                 rules: [{ required: true, message: '请输入密码!' }],
               })(<Input.Password />)}
             </Form.Item>
+            
            
           </Form>
         </Modal>
