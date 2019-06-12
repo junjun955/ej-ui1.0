@@ -1,7 +1,7 @@
 import React from 'react';
-import {Form,Modal,Input,} from 'antd'
+import {Form,Modal,Input} from 'antd'
 
-class CustomerForm extends React.Component {
+class CommentForm extends React.Component {
 
   render(){
     // 父组件传递给子组件值
@@ -10,7 +10,7 @@ class CustomerForm extends React.Component {
     return (
       <Modal
           visible={visible}
-          title="添加顾客信息"
+          title="添加顾客评论信息"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
@@ -31,10 +31,10 @@ class CustomerForm extends React.Component {
                 rules: [{ required: true, message: '请输入密码!' }],
               })(<Input.Password />)}
             </Form.Item>
-
+           
           </Form>
         </Modal>
     );
   }
 }
-export default Form.create()(CustomerForm); 
+export default Form.create()(CommentForm);
