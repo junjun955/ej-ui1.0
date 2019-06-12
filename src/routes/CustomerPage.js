@@ -74,6 +74,9 @@ class CustomerPage extends React.Component {
   render(){
     // 变量定义
     let columns = [{
+      title:'ID',
+        dataIndex:'id'
+      },{
       title:'姓名',
       dataIndex:'realname'
     },{
