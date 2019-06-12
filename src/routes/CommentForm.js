@@ -16,19 +16,19 @@ class CommentForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="姓名">
-              {getFieldDecorator('realname', {
-                rules: [{ required: true, message: '请输入姓名!' }],
+            <Form.Item label="内容">
+              {getFieldDecorator('content', {
+                rules: [{ required: true, message: '请输入内容!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="评论信息">
-              {getFieldDecorator('telephone', {
-                rules: [{ required: true, message: '请输入评论信息!' }],
+            <Form.Item label="评论时间">
+              {getFieldDecorator('comment_time', {
+                rules: [{ required: true, message: '请输入评论时间!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="密码">
+            <Form.Item label="订单号">
               {getFieldDecorator('password', {
-                rules: [{ required: true, message: '请输入密码!' }],
+                rules: [{ required: true, message: '请输入订单号!' }],
               })(<Input.Password />)}
             </Form.Item>
             
