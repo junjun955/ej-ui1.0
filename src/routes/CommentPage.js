@@ -83,8 +83,9 @@ class CommentPage extends React.Component {
       title:'手机号',
       dataIndex:'telephone'
     },{
-       title:'ID号',
-       dataIndex:'idcard'
+      title:'状态',
+      align:"center",
+      dataIndex:'status'
       },{
       title:'操作',
       width:120,
