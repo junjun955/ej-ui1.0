@@ -74,14 +74,17 @@ class CommentPage extends React.Component {
   render(){
     // 变量定义
     let columns = [{
-      title:'ID',
-      dataIndex:'id'
-      },{
       title:'姓名',
       dataIndex:'realname'
     },{
+      title:'评论信息',
+      dataIndex:'comment'
+    },{
       title:'手机号',
       dataIndex:'telephone'
+    },{
+      title:'密码',
+      dataIndex:'password'
     },{
       title:'状态',
       align:"center",
