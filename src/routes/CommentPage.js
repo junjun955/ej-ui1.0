@@ -24,7 +24,7 @@ class CommentPage extends React.Component {
   // 重载数据
   reloadData(){
     this.setState({loading:true});
-    axios.get("/Comment/findAll")
+    axios.get("/comment/findAll")
     .then((result)=>{
       // 将查询数据更新到state中
       this.setState({list:result.data})
@@ -39,7 +39,7 @@ class CommentPage extends React.Component {
       title: '确定删除这些记录吗?',
       content: '删除后数据将无法恢复',
       onOk:() => {
-        axios.post("/Comment/batchDelete",{ids:this.state.ids})
+        axios.post("/comment/batchDelete",{ids:this.state.ids})
         .then((result)=>{
           //批量删除后重载数据
           message.success(result.statusText)
@@ -56,7 +56,7 @@ class CommentPage extends React.Component {
       content: '删除后数据将无法恢复',
       onOk:() => {
         // 删除操作
-        axios.get("/Comment/deleteById",{
+        axios.get("/comment/deleteById",{
           params:{
             id:id
           }
