@@ -16,22 +16,21 @@ class CategoryForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="姓名">
-              {getFieldDecorator('realname', {
-                rules: [{ required: true, message: '请输入姓名!' }],
+            <Form.Item label="服务名称">
+              {getFieldDecorator('name', {
+                rules: [{ required: true, message: '请输入服务名称!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="手机号">
-              {getFieldDecorator('telephone', {
-                rules: [{ required: true, message: '请输入手机号!' }],
+            <Form.Item label="数量">
+              {getFieldDecorator('num', {
+                rules: [{ required: true, message: '请输入数量!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="密码">
-              {getFieldDecorator('password', {
-                rules: [{ required: true, message: '请输入密码!' }],
-              })(<Input.Password />)}
+            <Form.Item label="父类编号">
+              {getFieldDecorator('parent_id', {
+                rules: [{ required: true, message: '请输入父类编号!' }],
+              })(<Input />)}
             </Form.Item>
-           
           </Form>
         </Modal>
     );
