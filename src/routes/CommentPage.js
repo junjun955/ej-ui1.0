@@ -4,7 +4,7 @@ import styles from './CommentPage.css'
 // 导入组件
 import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
-import CustomerForm from './CommentForm'
+import CommentForm from './CommentForm'
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class CommentPage extends React.Component {
@@ -15,7 +15,8 @@ class CommentPage extends React.Component {
       ids:[], // 批量删除的时候保存的id
       list:[],
       loading:false,
-      visible:false
+      visible:false,
+      comment:{}
     }
   }
   // 在生命周期钩子函数中调用重载数据
@@ -165,9 +166,10 @@ class CommentPage extends React.Component {
           loading={this.state.loading}
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={this.state.list}
-             />
-          <CustomerForm
+          dataSource={this.state.list}/>
+          
+          <CommentForm
+             initData={this.state.comment}
             wrappedComponentRef={this.saveFormRef}
             visible={this.state.visible}
             onCancel={this.handleCancel}

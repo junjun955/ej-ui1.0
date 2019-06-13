@@ -7,6 +7,9 @@ class CommentForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
+      // 将表单中没有出现的值做一个双向数据绑定
+      getFieldDecorator("id");
+      getFieldDecorator("order_id");
     return (
       <Modal
           visible={visible}
