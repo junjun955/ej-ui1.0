@@ -134,7 +134,7 @@ class CommentPage extends React.Component {
         return (
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除评论</Button>
-            <Button type='link' size="small">修改评论</Button>
+            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
           </div>
         )
       }
