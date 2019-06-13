@@ -4,9 +4,21 @@ import {Form,Modal,Input} from 'antd'
 class AddressForm extends React.Component {
 
   render(){
+    const formLayout = {
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 6 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    }
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
+    // 将表单中没有出现的值做一个双向数据绑定
+    getFieldDecorator("id");
     return (
       <Modal
           visible={visible}
@@ -15,7 +27,7 @@ class AddressForm extends React.Component {
           onCancel={onCancel}
           onOk={onCreate}
         >
-          <Form layout="vertical">
+          <Form layout="vertical"{...formLayout}>
             <Form.Item label="省份">
               {getFieldDecorator('province', {
                 rules: [{ required: true, message: '请输入省份!' }],
@@ -36,11 +48,32 @@ class AddressForm extends React.Component {
                 rules: [{ required: true, message: '请输入详细地址!' }],
               })(<Input />)}
             </Form.Item>
-          
+            <Form.Item label="电话">
+              {getFieldDecorator('telephone', {
+                rules: [{ required: true, message: '请输入详细地址!' }],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="用户ID" >
+              {getFieldDecorator('customerId', {
+                rules: [{ required: true, message: '请输入用户ID!' }],
+              })(<Input />)}
+            </Form.Item>
            
           </Form>
         </Modal>
     );
   }
 }
-export default Form.create()(AddressForm);
+// 将通过props从父组件中获取的值拿出来设置到表单元素上
+const mapPropsToFields = (props)=>{
+  let obj = {};
+  for(let key in props.initData){
+    let val = props.initData[key];
+    obj[key] = Form.createFormField({value:val})
+  }
+  return obj;
+}
+
+export default Form.create({
+  mapPropsToFields
+})(AddressForm);
