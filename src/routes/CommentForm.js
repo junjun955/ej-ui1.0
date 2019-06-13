@@ -9,6 +9,8 @@ class CommentForm extends React.Component {
     const { getFieldDecorator } = form;
       // 将表单中没有出现的值做一个双向数据绑定
       getFieldDecorator("id");
+      getFieldDecorator("content");
+      getFieldDecorator("comment_time");
       getFieldDecorator("order_id");
     return (
       <Modal
@@ -41,4 +43,16 @@ class CommentForm extends React.Component {
     );
   }
 }
-export default Form.create()(CommentForm);
+// 将通过props从父组件中获取的值拿出来设置到表单元素上
+const mapPropsToFields = (props)=>{
+  let obj = {};
+  for(let key in props.initData){
+    let val = props.initData[key];
+    obj[key] = Form.createFormField({value:val})
+  }
+  return obj;
+}
+
+export default Form.create({
+  mapPropsToFields
+})(CommentForm);

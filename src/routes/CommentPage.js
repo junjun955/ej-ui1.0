@@ -102,11 +102,13 @@ class CommentPage extends React.Component {
   };
   // 去添加
   toAdd(){
-    this.setState({ visible:true})
+    // 将默认值置空,模态框打开
+    this.setState({comment:{},visible:true})
   }
   // 去更新
   toEdit(record){
-    alert(JSON.stringify(record));
+    // 更前先先把要更新的数据设置到state中
+    this.setState({comment:record})
     // 将record值绑定表单中
     this.setState({visible:true})
   }
@@ -169,7 +171,7 @@ class CommentPage extends React.Component {
           dataSource={this.state.list}/>
           
           <CommentForm
-             initData={this.state.comment}
+            initData={this.state.comment}
             wrappedComponentRef={this.saveFormRef}
             visible={this.state.visible}
             onCancel={this.handleCancel}
