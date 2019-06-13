@@ -10,8 +10,8 @@ class CommentForm extends React.Component {
       // 将表单中没有出现的值做一个双向数据绑定
       getFieldDecorator("id");
       getFieldDecorator("content");
-      getFieldDecorator("comment_time");
-      getFieldDecorator("order_id");
+      getFieldDecorator("commentTime");
+      getFieldDecorator("orderId");
     return (
       <Modal
           visible={visible}
@@ -27,14 +27,14 @@ class CommentForm extends React.Component {
               })(<Input />)}
             </Form.Item>
             <Form.Item label="评论时间">
-              {getFieldDecorator('comment_time', {
+              {getFieldDecorator('commentTime', {
                 rules: [{ required: true, message: '请输入评论时间!' }],
               })(<Input />)}
             </Form.Item>
             <Form.Item label="订单号">
-              {getFieldDecorator('password', {
+              {getFieldDecorator('orderId', {
                 rules: [{ required: true, message: '请输入订单号!' }],
-              })(<Input.Password />)}
+              })(<Input/>)}
             </Form.Item>
             
            
