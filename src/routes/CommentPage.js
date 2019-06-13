@@ -102,11 +102,13 @@ class CommentPage extends React.Component {
   };
   // 去添加
   toAdd(){
-    this.setState({ visible:true})
+    // 将默认值置空,模态框打开
+    this.setState({comment:{},visible:true})
   }
   // 去更新
   toEdit(record){
-    alert(JSON.stringify(record));
+    // 更前先先把要更新的数据设置到state中
+    this.setState({comment:record})
     // 将record值绑定表单中
     this.setState({visible:true})
   }
@@ -120,10 +122,10 @@ class CommentPage extends React.Component {
       dataIndex:'content'
     },{
       title:'评论时间',
-      dataIndex:'comment_time'
+      dataIndex:'commentTime'
     },{
       title:'订单号',
-      dataIndex:'order_id'
+      dataIndex:'orderId'
     },{
       title:'操作',
       width:120,
@@ -132,7 +134,7 @@ class CommentPage extends React.Component {
         return (
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除评论</Button>
-            <Button type='link' size="small">修改评论</Button>
+            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
           </div>
         )
       }
@@ -169,7 +171,7 @@ class CommentPage extends React.Component {
           dataSource={this.state.list}/>
           
           <CommentForm
-             initData={this.state.comment}
+            initData={this.state.comment}
             wrappedComponentRef={this.saveFormRef}
             visible={this.state.visible}
             onCancel={this.handleCancel}
