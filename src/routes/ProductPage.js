@@ -132,7 +132,7 @@ class ProductPage extends React.Component {
       dataIndex:'photo'
     },{
       title:'种类名',
-      dataIndex:'category_id'
+      dataIndex:'categoryId'
     },{
       title:'操作',
       width:120,
