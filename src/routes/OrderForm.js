@@ -2,7 +2,6 @@ import React from 'react';
 import {Form,Modal,Input,} from 'antd'
 
 class OrderForm extends React.Component {
-
   render(){
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
