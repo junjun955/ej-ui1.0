@@ -177,9 +177,11 @@ class ProductPage extends React.Component {
           columns={columns}
           dataSource={this.state.list}
              />
-         
-         
-
+        <ProductForm
+          wrappedComponentRef={this.saveFormRef}
+          visible={this.state.visible}
+          onCancel={this.handleCancel}
+          onCreate={this.handleCreate}/>
       </div>
     )
   }
