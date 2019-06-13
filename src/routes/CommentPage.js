@@ -122,10 +122,10 @@ class CommentPage extends React.Component {
       dataIndex:'content'
     },{
       title:'评论时间',
-      dataIndex:'comment_time'
+      dataIndex:'commentTime'
     },{
       title:'订单号',
-      dataIndex:'order_id'
+      dataIndex:'orderId'
     },{
       title:'操作',
       width:120,
