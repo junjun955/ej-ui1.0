@@ -119,9 +119,9 @@ class CategoryPage extends React.Component {
       dataIndex:'name'
     },{
       title:'数量',
-      dataIndex:'number'
+      dataIndex:'num'
     },{
-      title:'顾客ID',
+      title:'父类编号',
       dataIndex:'parent_id'
     },{
       title:'操作',
