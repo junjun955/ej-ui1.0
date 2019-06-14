@@ -15,7 +15,8 @@ class ProductPage extends React.Component {
       ids:[], // 批量删除的时候保存的id
       list:[],
       loading:false,
-      visible:false
+      visible:false,
+      product:{}
     }
   }
   // 在生命周期钩子函数中调用重载数据
@@ -101,11 +102,13 @@ class ProductPage extends React.Component {
   };
   // 去添加
   toAdd(){
-    this.setState({ visible:true})
+    // 将默认值置空,模态框打开
+    this.setState({product:{},visible:true})
   }
   // 去更新
   toEdit(record){
-    alert(JSON.stringify(record));
+    // 更前先先把要更新的数据设置到state中
+    this.setState({product:record})
     // 将record值绑定表单中
     this.setState({visible:true})
   }
@@ -132,7 +135,7 @@ class ProductPage extends React.Component {
       dataIndex:'photo'
     },{
       title:'种类名',
-      dataIndex:'category_id'
+      dataIndex:'categoryId'
     },{
       title:'操作',
       width:120,
@@ -179,6 +182,7 @@ class ProductPage extends React.Component {
              />
         <ProductForm
           wrappedComponentRef={this.saveFormRef}
+          initData={this.state.product}
           visible={this.state.visible}
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}/>

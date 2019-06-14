@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,} from 'antd'
+import {Form,Modal,Input} from 'antd'
 
 
 class ProductForm extends React.Component {
@@ -8,10 +8,20 @@ class ProductForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
+
+     // 将表单中没有出现的值做一个双向数据绑定
+    getFieldDecorator("id");
+    getFieldDecorator("name");
+    getFieldDecorator("description");
+    getFieldDecorator("price");
+    getFieldDecorator("status");
+    getFieldDecorator("photo");
+    getFieldDecorator("categoryId");
+
     return (
       <Modal
           visible={visible}
-          title="添加产品信息"
+          title="修改产品信息"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
@@ -43,9 +53,9 @@ class ProductForm extends React.Component {
               })(<Input />)}
             </Form.Item>
             <Form.Item label="种类名">
-              {getFieldDecorator('category_id', {
+              {getFieldDecorator('categoryId', {
                 rules: [{ required: true, message: '请输入种类名!' }],
-              })(<Input />)}
+              })(<Input/>)}
             </Form.Item>
 
           </Form>
@@ -53,4 +63,16 @@ class ProductForm extends React.Component {
     );
   }
 }
-export default Form.create()(ProductForm); 
+// 将通过props从父组件中获取的值拿出来设置到表单元素上
+const mapPropsToFields = (props)=>{
+  let obj = {};
+  for(let key in props.initData){
+    let val = props.initData[key];
+    obj[key] = Form.createFormField({value:val})
+  }
+  return obj;
+}
+
+export default Form.create({
+  mapPropsToFields
+})(ProductForm);
