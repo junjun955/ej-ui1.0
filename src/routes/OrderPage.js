@@ -119,7 +119,7 @@ toEdit(record){
       align:"center",
       dataIndex:'order_time'
     },{
-        title:'总数',
+        title:'总价',
         align:"center",
         dataIndex:'total'
       },{
