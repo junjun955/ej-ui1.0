@@ -16,7 +16,8 @@ class CategoryPage extends React.Component {
       ids:[], // 批量删除的时候保存的id
       list:[],
       loading:false,
-      visible:false
+      visible:false,
+      category:{}
     }
   }
   // 在生命周期钩子函数中调用重载数据
@@ -102,11 +103,12 @@ class CategoryPage extends React.Component {
   };
   // 去添加
   toAdd(){
-    this.setState({ visible:true})
+    this.setState({category:{},visible:true})
   }
   // 去更新
   toEdit(record){
-    alert(JSON.stringify(record));
+    // 更前先先把要更新的数据设置到state中
+    this.setState({category:record})
     // 将record值绑定表单中
     this.setState({visible:true})
   }
@@ -122,7 +124,7 @@ class CategoryPage extends React.Component {
       dataIndex:'num'
     },{
       title:'父类编号',
-      dataIndex:'parent_id'
+      dataIndex:'parentId'
     },{
       title:'操作',
       width:120,
@@ -168,10 +170,11 @@ class CategoryPage extends React.Component {
           dataSource={this.state.list}/>
 
         <CategoryForm
-          wrappedComponentRef={this.saveFormRef}
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          onCreate={this.handleCreate}/>
+         initData={this.state.category}
+         wrappedComponentRef={this.saveFormRef}
+         visible={this.state.visible}
+         onCancel={this.handleCancel}
+         onCreate={this.handleCreate}/>
       </div>
     )
   }

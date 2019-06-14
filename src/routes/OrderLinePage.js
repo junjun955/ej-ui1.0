@@ -121,11 +121,11 @@ class OrderLinePage extends React.Component {
     },{
       title:'产品号',
       align:"center",
-      dataIndex:'product_id'
+      dataIndex:'productId'
     },{
       title:'订单号',
       align:"center",
-      dataIndex:'order_id'
+      dataIndex:'orderId'
     },{
       title:'操作',
       width:120,

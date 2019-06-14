@@ -4,7 +4,7 @@ import styles from './OrderPage.css'
 // 导入组件
 import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
-import CustomerForm from './OrderForm'
+import OrderForm from './OrderForm'
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -100,17 +100,17 @@ class OrderPage extends React.Component {
   saveFormRef = formRef => {
     this.formRef = formRef;
   };
-  // 去添加
-  toAdd(){
-    this.setState({ visible:true})
-  }
-  // 去更新
-  toEdit(record){
-    alert(JSON.stringify(record));
-    // 将record值绑定表单中
-    this.setState({visible:true})
-  }
-
+ // 去添加
+ toAdd(){
+  this.setState({order:{},visible:true})
+}
+// 去更新
+toEdit(record){
+  // 更前先先把要更新的数据设置到state中
+  this.setState({order:record})
+  // 将record值绑定表单中
+  this.setState({visible:true})
+}
   // 组件类务必要重写的方法，表示页面渲染
   render(){
     // 变量定义
@@ -125,15 +125,15 @@ class OrderPage extends React.Component {
       },{
       title:'顾客编号',
       align:"center",
-      dataIndex:'customer_id'
+      dataIndex:'customerId'
     },{
       title:'员工编号',
       align:"center",
-      dataIndex:'waiter_id'
+      dataIndex:'waiterId'
     },{
       title:'地址编号',
       align:"center",
-      dataIndex:'address_id'
+      dataIndex:'addressId'
     },{
       title:'操作',
       width:120,
@@ -178,11 +178,12 @@ class OrderPage extends React.Component {
           columns={columns}
           dataSource={this.state.list}/>
 
-        <CustomerForm
-          wrappedComponentRef={this.saveFormRef}
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          onCreate={this.handleCreate}/>
+        <OrderForm
+           initData={this.state.order}
+           wrappedComponentRef={this.saveFormRef}
+           visible={this.state.visible}
+           onCancel={this.handleCancel}
+           onCreate={this.handleCreate}/>
       </div>
     )
   }
