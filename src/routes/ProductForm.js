@@ -21,7 +21,7 @@ class ProductForm extends React.Component {
     return (
       <Modal
           visible={visible}
-          title="添加产品信息"
+          title="修改产品信息"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
