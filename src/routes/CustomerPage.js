@@ -125,8 +125,11 @@ class CustomerPage extends React.Component {
       dataIndex:'telephone'
     },{
       title:'状态',
-      align:"center",
       dataIndex:'status'
+    },{
+      title:'密码',
+      align:"center",
+      dataIndex:'password'
     },{
       title:'操作',
       width:120,

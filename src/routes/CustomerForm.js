@@ -45,7 +45,11 @@ class CustomerForm extends React.Component {
                 rules: [{ required: true, message: '请输入密码!' }],
               })(<Input.Password />)}
             </Form.Item>
-           
+            <Form.Item label="状态">
+              {getFieldDecorator('status', {
+                rules: [{ required: true, message: '请输入状态!' }],
+              })(<Input />)}
+            </Form.Item>
           </Form>
         </Modal>
     );
