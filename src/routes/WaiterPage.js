@@ -6,7 +6,6 @@ import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
 import WaiterForm from './WaiterForm'
 
-
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class WaiterPage extends React.Component {
   // 局部状态state
@@ -16,7 +15,8 @@ class WaiterPage extends React.Component {
       ids:[], // 批量删除的时候保存的id
       list:[],
       loading:false,
-      visible:false
+      visible:false,
+      waiter:{}
     }
   }
   // 在生命周期钩子函数中调用重载数据
@@ -102,11 +102,13 @@ class WaiterPage extends React.Component {
   };
   // 去添加
   toAdd(){
-    this.setState({ visible:true})
+    // 将默认值置空,模态框打开
+    this.setState({waiter:{},visible:true})
   }
   // 去更新
   toEdit(record){
-    alert(JSON.stringify(record));
+    // 更前先先把要更新的数据设置到state中
+    this.setState({waiter:record})
     // 将record值绑定表单中
     this.setState({visible:true})
   }
@@ -172,6 +174,7 @@ class WaiterPage extends React.Component {
           dataSource={this.state.list}/>
 
         <WaiterForm
+          initData={this.state.waiter}
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
           onCancel={this.handleCancel}
