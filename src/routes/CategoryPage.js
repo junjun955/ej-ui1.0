@@ -153,7 +153,7 @@ class CategoryPage extends React.Component {
     
     // 返回结果 jsx(js + xml)
     return (
-      <div className={styles.waiter}>
+      <div className={styles.category}>
         <div className={styles.title}>服务管理</div>
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
