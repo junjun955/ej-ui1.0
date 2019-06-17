@@ -6,7 +6,8 @@ import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
 import ProductForm from './ProductForm'
 
-// 组件类必须要继承React.Component，是一个模块，顾客管理子功能
+
+// 组件类必须要继承React.Component，是一个模块，产品管理子功能
 class ProductPage extends React.Component {
   // 局部状态state
   constructor(){
@@ -83,6 +84,7 @@ class ProductPage extends React.Component {
       if (err) {
         return;
       }
+      alert(JSON.stringify(values));
       // 表单校验完成后与后台通信进行保存
       axios.post("/product/saveOrUpdate",values)
       .then((result)=>{
@@ -112,39 +114,44 @@ class ProductPage extends React.Component {
     // 将record值绑定表单中
     this.setState({visible:true})
   }
-
+  toDetails(record){
+    console.log(record);
+    //跳转
+    this.props.history.push("/productDetails")
+  }
 
   // 组件类务必要重写的方法，表示页面渲染
   render(){
     // 变量定义
     let columns = [{
-      title:'姓名',
+      title:'产品名称',
       dataIndex:'name'
     },{
       title:'描述',
       dataIndex:'description'
     },{
-      title:'价格',
+      title:'单价',
+      align:"center",
       dataIndex:'price'
     },{
-      title:'状态',
+      title:'图片',
       align:"center",
-      dataIndex:'status'
-    },{
-      title:'照片',
-      dataIndex:'photo'
-    },{
-      title:'种类名',
-      dataIndex:'categoryId'
+      dataIndex:'photo',
+      render(text){
+        return (
+          <img width={40} height={40} src={"http://134.175.154.93:8888/group1/"+text}/>
+        )
+      }
     },{
       title:'操作',
-      width:120,
+      width:160,
       align:"center",
       render:(text,record)=>{
         return (
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
           </div>
         )
       }
@@ -157,19 +164,19 @@ class ProductPage extends React.Component {
         })
       },
       getCheckboxProps: record => ({
-        disabled: record.name === 'Disabled Product', // Column configuration not to be checked
+        disabled: record.name === 'Disabled User', // Column configuration not to be checked
         name: record.name,
       }),
     };
     
     // 返回结果 jsx(js + xml)
-     return (
-      <div className={styles.Product}>
+    return (
+      <div className={styles.product}>
         <div className={styles.title}>产品管理</div>
         <div className={styles.btns}>
-        <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-        <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
-        <Button type="link">导出</Button>
+          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+          <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
+          <Button type="link">导出</Button>
         </div>
         <Table 
           bordered
@@ -178,11 +185,11 @@ class ProductPage extends React.Component {
           loading={this.state.loading}
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={this.state.list}
-             />
+          dataSource={this.state.list}/>
+
         <ProductForm
-          wrappedComponentRef={this.saveFormRef}
           initData={this.state.product}
+          wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}/>
@@ -192,4 +199,3 @@ class ProductPage extends React.Component {
 }
 
 export default ProductPage;
-
