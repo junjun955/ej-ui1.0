@@ -53,28 +53,22 @@ function RouterConfig({ history }) {
               <Menu.Item key="4">
                 <Icon type="desktop" />
                 <span>
-                  <Link to="/order">订单管理</Link>
+                  <Link to="/waiter">服务员管理</Link>
                 </span>
               </Menu.Item>
               <Menu.Item key="5">
                 <Icon type="desktop" />
                 <span>
-                  <Link to="/waiter">服务员管理</Link>
+                  <Link to="/comment">评价管理</Link>
                 </span>
               </Menu.Item>
               <Menu.Item key="6">
                 <Icon type="desktop" />
                 <span>
-                  <Link to="/comment">评价管理</Link>
-                </span>
-              </Menu.Item>
-              <Menu.Item key="7">
-                <Icon type="desktop" />
-                <span>
                   <Link to="/product">产品管理</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="8">
+              <Menu.Item key="7">
                 <Icon type="desktop" />
                 <span>
                   <Link to="/category">分类管理</Link>
