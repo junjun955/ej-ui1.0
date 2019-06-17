@@ -38,6 +38,11 @@ class WaiterForm extends React.Component {
                 rules: [{ required: true, message: '请输入ID号!' }],
               })(<Input/>)}
             </Form.Item>
+            <Form.Item label="图片">
+              {getFieldDecorator('photo', {
+                rules: [{ required: true, message: '请上传图片!' }],
+              })(<Input/>)}
+            </Form.Item>
             <Form.Item label="状态">
               {getFieldDecorator('status', {
                 rules: [{ required: true, message: '请输入状态!' }],
