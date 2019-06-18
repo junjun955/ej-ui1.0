@@ -100,12 +100,12 @@ class ProductForm extends React.Component {
             </Form.Item>
             <Form.Item label="单价">
               {getFieldDecorator('price', {
-                rules: [{ required: true, message: '请输入密码!' }],
+                rules: [{ required: true, message: '请输入单价!' }],
               })(<Input />)}
             </Form.Item>
             <Form.Item label="所属分类">
               {getFieldDecorator('categoryId', {
-                rules: [{ required: true, message: '请输入密码!' }],
+                rules: [{ required: true, message: '请输入所属分类!' }],
               })(
               <Select>
                 {
