@@ -103,6 +103,11 @@ class ProductForm extends React.Component {
                 rules: [{ required: true, message: '请输入单价!' }],
               })(<Input />)}
             </Form.Item>
+            <Form.Item label="照片">
+              {getFieldDecorator('photo', {
+                rules: [{ required: true, message: '请上传照片!' }],
+              })(<Input />)}
+            </Form.Item>
             <Form.Item label="所属分类">
               {getFieldDecorator('categoryId', {
                 rules: [{ required: true, message: '请输入所属分类!' }],

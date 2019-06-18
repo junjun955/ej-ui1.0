@@ -61,7 +61,7 @@ class CustomerDetails extends React.Component {
           <TabPane tab="基本信息" key="1">
             <p>{this.state.customer.realname}</p>
             <p>{this.state.customer.telephone}</p>
-            <img alt="图片找不到..." src={this.state.customer.photo}/>
+            <img alt="图片找不到..." src={"http://134.175.154.93:8888/group1/"+this.state.customer.photo}/>
           </TabPane>
           <TabPane tab="服务地址" key="2">
             {JSON.stringify(this.state.address)}
