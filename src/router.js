@@ -3,6 +3,7 @@ import { Router, Route, Switch, Link } from 'dva/router';
 import IndexPage from './routes/IndexPage';
 import OrderLinePage from './routes/OrderLinePage'
 import CustomerPage from './routes/CustomerPage'
+import CustomerDetails from './routes/CustomerDetails'
 import WaiterPage from './routes/WaiterPage'
 import OrderPage from './routes/OrderPage'
 import CommentPage from './routes/CommentPage'
@@ -11,7 +12,7 @@ import AddressPage from './routes/AddressPage'
 import CategoryPage from './routes/CategoryPage'
 import { Layout, Menu, Breadcrumb, Icon} from 'antd'
 function RouterConfig({ history }) {
-  // const { SubMenu } = Menu;
+  const { SubMenu } = Menu;
   const { Header, Content, Sider } = Layout;
 
   return (
@@ -102,6 +103,7 @@ function RouterConfig({ history }) {
                 <Route path="/product" exact component={ProductPage} />
                 <Route path="/address" exact component={AddressPage} />
                 <Route path="/category" exact component={CategoryPage} />
+                <Route path="/customerDetails" exact component={CustomerDetails} />
               </Switch>
             </Content>
           </Layout>

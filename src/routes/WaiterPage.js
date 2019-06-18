@@ -112,6 +112,14 @@ class WaiterPage extends React.Component {
     // 将record值绑定表单中
     this.setState({visible:true})
   }
+  toDetails(record){
+    console.log(record);
+    //跳转 react-router
+    this.props.history.push({
+      pathname:"/waiterDetails",
+      payload:record
+    })
+  }
 
   // 组件类务必要重写的方法，表示页面渲染
   render(){
@@ -147,6 +155,7 @@ class WaiterPage extends React.Component {
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
           </div>
         )
       }
@@ -167,7 +176,7 @@ class WaiterPage extends React.Component {
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.waiter}>
-        <div className={styles.title}>工人管理</div>
+        <div className={styles.title}>服务员管理</div>
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;

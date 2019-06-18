@@ -6,7 +6,7 @@ import {
   Icon,
   Form,
   Modal,
-  Input,
+  Input
 } from 'antd'
 
 class WaiterForm extends React.Component {
@@ -72,9 +72,9 @@ class WaiterForm extends React.Component {
                 rules: [{ required: true, message: '请输入ID号!' }],
               })(<Input/>)}
             </Form.Item>
-            <Form.Item label="图片">
+            <Form.Item label="照片">
               {getFieldDecorator('photo', {
-                rules: [{ required: true, message: '请上传图片!' }],
+                rules: [{ required: true, message: '请上传照片!' }],
               })(<Input/>)}
             </Form.Item>
             <Form.Item label="状态">
