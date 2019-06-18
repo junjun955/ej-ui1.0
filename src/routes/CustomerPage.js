@@ -134,9 +134,14 @@ class CustomerPage extends React.Component {
       title:'状态',
       dataIndex:'status'
     },{
-      title:'密码',
+      title:'照片',
       align:"center",
-      dataIndex:'password'
+      dataIndex:'photo',
+      render(text){
+        return (
+          <img width={40} height={40} src={"http://134.175.154.93:8888/group1/"+text}/>
+        )
+      }
     },{
       title:'操作',
       width:170,
