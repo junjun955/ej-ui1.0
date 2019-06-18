@@ -117,7 +117,7 @@ toEdit(record){
     let columns = [{
       title:'订单时间',
       align:"center",
-      dataIndex:'order_time'
+      dataIndex:'orderTime'
     },{
         title:'总价',
         align:"center",
