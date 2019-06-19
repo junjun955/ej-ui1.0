@@ -136,7 +136,7 @@ class CommentPage extends React.Component {
       dataIndex:'orderId'
     },{
       title:'操作',
-      width:120,
+      width:200,
       align:"center",
       render:(text,record)=>{
         return (

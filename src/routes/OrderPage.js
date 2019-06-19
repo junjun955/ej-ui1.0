@@ -144,7 +144,7 @@ toDetails(record){
       dataIndex:'addressId'
     },{
       title:'操作',
-      width:120,
+      width:170,
       align:"center",
       render:(text,record)=>{
         return (
