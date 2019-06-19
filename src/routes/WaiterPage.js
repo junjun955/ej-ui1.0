@@ -4,6 +4,7 @@ import styles from './WaiterPage.css'
 // 导入组件
 import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
+
 import WaiterForm from './WaiterForm'
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -148,7 +149,7 @@ class WaiterPage extends React.Component {
       }
     },{
       title:'操作',
-      width:120,
+      width:170,
       align:"center",
       render:(text,record)=>{
         return (

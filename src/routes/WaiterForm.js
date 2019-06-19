@@ -9,8 +9,8 @@ import {
   Input
 } from 'antd'
 
-class WaiterForm extends React.Component {
 
+class WaiterForm extends React.Component {
   render(){
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;

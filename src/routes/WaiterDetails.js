@@ -2,7 +2,7 @@ import React from 'react'
 import {Button,Tabs} from 'antd'
 import axios from '../utils/axios';
 
-class CustomerDetails extends React.Component {
+class WaiterDetails extends React.Component {
 
   constructor(props){
     super(props);
@@ -14,6 +14,8 @@ class CustomerDetails extends React.Component {
   componentDidMount(){
     let payload = this.props.location.payload;
     if(payload){
+     
+     //将page页面传递过来的值设置到局部状态中
       this.setState({waiter:payload})
     } else {
       this.props.history.push("/waiter")
@@ -33,7 +35,7 @@ class CustomerDetails extends React.Component {
           <TabPane tab="基本信息" key="1">
             <p>{this.state.waiter.realname}</p>
             <p>{this.state.waiter.telephone}</p>
-            <img alt="图片找不到..." src={this.state.waiter.photo}/>
+            <img alt="图片找不到..." src={"http://134.175.154.93:8888/group1/"+this.state.waiter.photo}/>
           </TabPane>
         </Tabs>
         <Button type="link" onClick={()=>{this.props.history.goBack()}}>返回</Button>
@@ -42,4 +44,4 @@ class CustomerDetails extends React.Component {
   }
 }
 
-export default CustomerDetails;
+export default WaiterDetails;
