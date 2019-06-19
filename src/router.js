@@ -4,6 +4,8 @@ import IndexPage from './routes/IndexPage';
 import OrderLinePage from './routes/OrderLinePage'
 import CustomerPage from './routes/CustomerPage'
 import CustomerDetails from './routes/CustomerDetails'
+import ProductDetails from './routes/ProductDetails'
+import CommentDetails from './routes/CommentDetails'
 import WaiterPage from './routes/WaiterPage'
 import OrderPage from './routes/OrderPage'
 import CommentPage from './routes/CommentPage'
@@ -104,6 +106,8 @@ function RouterConfig({ history }) {
                 <Route path="/address" exact component={AddressPage} />
                 <Route path="/category" exact component={CategoryPage} />
                 <Route path="/customerDetails" exact component={CustomerDetails} />
+                <Route path="/productDetails" exact component={ProductDetails} />
+                <Route path="/commentDetails" exact component={CommentDetails} />
               </Switch>
             </Content>
           </Layout>

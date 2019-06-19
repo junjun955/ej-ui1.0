@@ -7,14 +7,16 @@ class ProductDetails extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      product:{}
+      product:[]
     }
   }
 
   componentDidMount(){
     let payload = this.props.location.payload;
     if(payload){
-      this.setState({product:payload})
+     // this.loadProducts();
+     //将page页面传递过来的值设置到局部状态中
+     this.setState({product:payload})
     } else {
       this.props.history.push("/product")
     }

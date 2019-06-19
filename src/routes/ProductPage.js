@@ -117,7 +117,10 @@ class ProductPage extends React.Component {
   toDetails(record){
     console.log(record);
     //跳转
-    this.props.history.push("/productDetails")
+    this.props.history.push({
+      pathname:"/productDetails",
+      payload:record
+    })
   }
 
   // 组件类务必要重写的方法，表示页面渲染
