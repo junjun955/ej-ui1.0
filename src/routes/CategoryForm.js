@@ -1,11 +1,11 @@
 import React from 'react';
-import {Form,Modal,Input} from 'antd'
+import {Form,Modal,Input,Select} from 'antd'
 
 class CategoryForm extends React.Component {
 
   render(){
     // 父组件传递给子组件值
-    const { visible, onCancel, onCreate, form } = this.props;
+    const { visible, onCancel, onCreate, form ,children} = this.props;
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
@@ -29,11 +29,13 @@ class CategoryForm extends React.Component {
                 rules: [{ required: true, message: '请输入数量!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="父类编号">
+            <Form.Item label="父id">
               {getFieldDecorator('parentId', {
-                rules: [{ required: true, message: '请输入父类编号!' }],
-              })(<Input />)}
+                rules: [],
+                })(<Select>{children}</Select>
+                )}
             </Form.Item>
+            
           </Form>
         </Modal>
     );

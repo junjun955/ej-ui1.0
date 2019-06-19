@@ -2,9 +2,10 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './CategoryPage.css'
 // 导入组件
-import {Modal,Button, Table,message} from 'antd'
+import {Modal,Button, Table,message,Select} from 'antd'
 import axios from '../utils/axios'
 import CategoryForm from './CategoryForm'
+const { Option } = Select;
 
 
 // 组件类必须要继承React.Component，是一个模块，服务管理子功能
@@ -30,6 +31,12 @@ class CategoryPage extends React.Component {
     this.setState({loading:true});
     axios.get("/category/findAll")
     .then((result)=>{
+        this.children = []
+              result.data.forEach((item) => {
+                if(!item.parentId){
+                  this.children.push(<Option key={item.id} value={item.id}>{item.name}</Option>);
+                }
+        })
       // 将查询数据更新到state中
       this.setState({list:result.data})
     })
@@ -174,7 +181,8 @@ class CategoryPage extends React.Component {
          wrappedComponentRef={this.saveFormRef}
          visible={this.state.visible}
          onCancel={this.handleCancel}
-         onCreate={this.handleCreate}/>
+         onCreate={this.handleCreate}
+         children={this.children} />
       </div>
     )
   }
