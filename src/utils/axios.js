@@ -9,7 +9,7 @@ axios.defaults.headers["Content-Type"]= "application/x-www-form-urlencoded";
 // 2. 拦截器配置
 axios.interceptors.request.use((config)=>{
   if(config.method === "post"){
-    // 将js对象转换为查询字符串，用第一行是对的
+    // 将js对象转换为查询字符串，用第一行是对的,要不然批量删除会出错
   config.data = qs.stringify(config.data,{ arrayFormat: 'repeat' })
   // config.data = qs.stringify(config.data,{ allowDots: true })
   }
